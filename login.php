@@ -1,12 +1,39 @@
     <?php
     $title ='login';
     include 'header.php';
+    include 'connect-db.php';
+    
+    if(isset($_POST['uid'],$_POST['pwd']))
+    {
+        $uname = $_POST['uid'];
+        $pwd = $_POST['pwd'];
+        
+        $query = " SELECT * FROM user WHERE username='$uname' AND password='$pwd'";
+        $result = mysqli_query($con, $query);
+        if($result)
+        {
+            if((mysqli_num_rows($result)== 1))
+            {
+                $_SESSION['admin']=$uname;
+                header('Locatio:login.php?status=valid');
+            }
+            else
+            {
+                header('Location:login.php?status=invalid');
+            }
+        }
+    }
 ?>
 <div class="wrapper">
     <div class="content">
     
     
-    <form id="Login" name="Login">
+        <form id="Login" name="Login" method="POST" action="login.php">
+            <?php 
+                if(isset($_GET['status'])and $_GET['status']=="invalid"){
+                    ?> <p class="login-error">Wrong username / password please try again</p>
+            <?php } ?>
+                    
 	 <h3>Username</h3>
     <input type= "text" name="userName" id="box1">
  <span class="error" id="userid">This is required</span>                        
