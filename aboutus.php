@@ -4,7 +4,7 @@ include 'header.php';
 ?>
 <div class="wrapper">
 
-    <div id="content">
+    <div class="content">
         <section id="about">
             <h2>About us</h2> 
             <p>
@@ -14,19 +14,20 @@ include 'header.php';
 
         <section id="team">
             <h2>Team members:</h2> 
-            <h3>Batool Alabdulsalam</h3>
-            <h3>Fatima Alsalman</h3>
-            <h3>Zahra Alshakhs</h3>
-            <p>Curious programmer. <br>
+            <h3 class="names">Batool Alabdulsalam</h3>
+            <h3 class="names">Fatima Alsalman</h3>
+            <h3 class="names">Zahra Alshakhs</h3>
+            
+            <p class="aboutP">Curious programmer. <br>
                 22 years old<br>
                 CS student at CCSIT.<br></p>
 
-            <p>Amature programmer.<br>
+            <p class="aboutP">Amature programmer.<br>
                 22 years old.<br>
                 Student at CCSIT,<br>
                 3rd year CS majour. <br></p>
 
-            <p>Just a programmer.<br>
+            <p class="aboutP">Just a programmer.<br>
                 22 years old.<br>
                 6th level CS Student<br>
                 at KFU.<br></p>

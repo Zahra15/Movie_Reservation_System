@@ -8,6 +8,14 @@ html{
     padding:30px;
 
 }
+.content{
+ margin-top:20px;
+margin-bottom:30px;
+margin-left: 140px;
+margin-right: 140px;
+padding:20px 5px;
+
+}
 #homeBody{
     margin-top: 70px ;
     
@@ -321,3 +329,63 @@ a.slide_btn {
         right: 50px;
     }
 }
+
+
+input,  select{
+    width: 25%;
+    padding: 3px 10px;
+    margin: 8px 0;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+input[type=radio]{
+    width: 5%   !important ;
+}
+input[type= file]{
+    width: 30%  !important;
+}
+textarea{   
+    padding: 3px 10px;
+    margin: 8px 0;
+    border: 1px solid gray;
+    border-radius: 4px;  
+}
+
+input[type=submit], button  {
+    background-color: ghostwhite;
+    color: black;
+    padding: 3px 10px;
+    margin: 8px 0;
+    border: 1px solid gray ;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+label, h3{
+    display: inline-block;
+    width: 140px;
+    
+}
+
+ h3.names{
+    display: inline-block;
+    width: 140px;
+    margin-right: 55px;
+}
+
+p.aboutP{
+    display: inline-block;
+    //padding-left: 11px;
+    height: 20px;
+    //margin-top: 5px;
+    margin-right: 27px;
+    
+}
+
+   .error
+            {
+                color: red;
+                font-style: italic;
+                font-size: 10px;
+                visibility:hidden;
+            }

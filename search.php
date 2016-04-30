@@ -2,11 +2,12 @@
     $title ='search';
     include 'header.php';
 ?>
+
 <div class="wrapper">
-    <div id="content">
+    <div class="content">
         <label>Name: </label>
         <input type="search" name="search">
-        <a href="MovieInfoPage.html"><button value="Search">Search</button> </a>
+       
       
         <div id="filter">
         <label>Filters<br></label><br>
@@ -35,6 +36,8 @@
             <option value="drama">Drama</option>
             <option value="sciencefiction">Science Fiction</option>
         </select>
+        <br>
+         <a href="MovieInfoPage.php"><button value="Search">Search</button> </a>
            </div>
         </div>
 </div>        

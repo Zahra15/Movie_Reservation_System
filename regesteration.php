@@ -5,7 +5,7 @@
 
 
 <div class="wrapper">
-<div id="content">
+<div class="content">
 <h2>PERSONAL INFORMATION</h2><br>
 
 	<label>First name: </label><input type= text><br><br>
