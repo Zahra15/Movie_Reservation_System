@@ -20,7 +20,7 @@ include 'header.php';
          <h3> Comment:</h3><br>
         <textarea rows="10" cols="50" id="textArea" name="textArea"></textarea>
      <br>
-        <span class="error" >Enter your Message here!</span> <br>
+        <span class="error" >Enter Your Message Here!</span> <br>
           <br>
      </fieldset>
  
