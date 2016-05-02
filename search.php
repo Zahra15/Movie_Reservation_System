@@ -5,8 +5,8 @@
 
 <div class="wrapper">
     <div class="content">
-        <form id="searchForm" name="searchForm">    
-
+        <form id="searchForm" name="searchForm"  method="post" action="search.php?go"  onsubmit=“return validate();” >    
+         
         <label>Name: </label>
         <input type="search" name="search">
        
@@ -48,6 +48,27 @@
     </form>    
     </div>
 </div>   
+<?php
+   if(isset($_POST['submit']))
+   {
+       if(isset($_GET['go'])){
+           $Mname = $_POST[search];
+           $sql = "SELECT * From movie WHERE movieName LIKE '% " . $Mname . " %' ";
+           $result=mysql_query($sql);
+           while($row=mysql_fetch_array($result)){ 
+	          $Mid  =$row['movieID']; 
+                  $mname = $row['movieName'];
+
+	  //-display the result of the array 
+	  echo "<ul>\n"; 
+	  echo "<li>"   .$Mid . " " .$mname  .  "</li>\n"; 
+	  echo "</ul>"; 
+	  } 
+                  
+       }
+   }
+
+?>
 
 <script>
            function validate(){
@@ -73,8 +94,10 @@
                             error=0;
                         }
                         
-             if(error==0)
+             if(error==0){
                       return true;
+                      document.searchForm.submit();
+                        }
                     else
                        return false;           
     }
