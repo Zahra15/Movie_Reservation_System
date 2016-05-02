@@ -1,28 +1,44 @@
     <?php
-    $title ='regestration';
+    $title ='Regestration';
     include 'header.php';
 ?>
 
 
 <div class="wrapper">
 <div class="content">
-<h2>PERSONAL INFORMATION</h2><br>
-
+<fieldset>
+         <legend><h2>PERSONAL INFORMATION</h2></legend>
+<br>
 	<label>First name: </label><input type= text><br><br>
 	<label>Last name: </label><input type= text><br><br>
 	<label>Nationality: </label><input type= text><br><br>
 	<label>E-Mail:</label><input type= email><br><br>
 	<label>Phone Number:</label><input type= text><br><br>
-	<label>Photo: </label><input type= file><br><br>	
-	<h2>LOGIN INFORMATION</h2><br>
+	<label>Photo: </label><input type= file><br><br>
+        </fieldset>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <fieldset>
+         <legend><h2>LOGIN INFORMATION</h2></legend>
+	<br>
 	<label>Username:</label> <input type= text><br><br>
 	<label>Password: </label>
     <input type= password>
-    <br><br>
+    
+    </fieldset>
+ <br>
+    <br>
+    <br>
+    <br>
+    
 	
-	
-	<h2>PAYMENT INFORMATION</h2><br>
-		
+    <fieldset>
+        <legend><h2>PAYMENT INFORMATION</h2></legend>
+		<br>
 	<label>Card Type:</label>
     <select name="card">
   		<option value="">Select Type</option>
@@ -56,9 +72,17 @@
     <option value='12'>2016</option></select><br><br>
 	<label> Card Code: </label>
     <input type= text><br><br>
-
-<h2>WHERE DID YOU HEAR ABOUT US</h2><br>
+</fieldset>
     
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    
+    <fieldset><legend><h2>WHERE DID YOU HEAR ABOUT US</h2></legend>
+    <br>
 <input type="radio" name="where" value="friend" checked> 
   <label>Friend</label> <br>
    
@@ -73,7 +97,9 @@
 
     <input type="radio" name="where" value="other">
 <label> Other  </label>
-    <br><br>
+<br><br>
+    </fieldset>
+    <br>
 <button type="button">Register</button>
 </div>
 </div>
