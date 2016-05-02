@@ -1,5 +1,5 @@
     <?php
-    $title ='Regestration';
+    $title ='Regestration Page';
     include 'header.php';
 ?>
 
