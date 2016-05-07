@@ -1,14 +1,24 @@
     <?php
+   
     $title ='search';
     include 'header.php';
+    
+   if(isset($_POST['submit'])){
+       if( ($_POST['searchT'] !== "") || ($_POST['location'] !== "") || ($_POST['date']) !== "" || ($_POST['time']) !== "" || ($_POST['type']) !== "") {
+    
+       header("Location: search-movie.php?name=".$_POST['searchT']."&location=".$_POST['location']."&date=".$_POST['date']."&time=".$_POST['time']."&type=".$_POST['type']);
+        exit(); 
+       }
+   }
 ?>
+    
 
 <div class="wrapper">
     <div class="content">
-        <form id="searchForm" name="searchForm"  method="post" action="search.php?go"  onsubmit=“return validate();” >    
+        <form id="searchForm" name="searchForm"  method="POST" action="search.php">    
          
         <label>Name: </label>
-        <input type="search" name="search">
+        <input type="search" name="searchT" id ="searchT">
        
       
         <div id="filter">
@@ -19,7 +29,7 @@
             <option value="riyadh">Riyadh</option>
             <option value="jeddah">Jeddah</option>
             <option value="dammam">Dammam</option>
-            <option value="dammam">Khobar</option>
+            <option value="">Khobar</option>
             <option value="hofuf">Hofuf</option>
         </select><br>
         <label>Date </label><input type="date" name="date"/>
@@ -42,40 +52,20 @@
             <option value="sciencefiction">Science Fiction</option>
         </select>
         <br>
-        <button type="button" value="Submit" onclick="validate();">Search</button>
+        <button type="submit" name="submit" id="submit" onclick="validate();">Search</button>
         <span class="error">Please enter some values!</span>
            </div>
     </form>    
     </div>
 </div>   
-<?php
-   if(isset($_POST['submit']))
-   {
-       if(isset($_GET['go'])){
-           $Mname = $_POST[search];
-           $sql = "SELECT * From movie WHERE movieName LIKE '% " . $Mname . " %' ";
-           $result=mysql_query($sql);
-           while($row=mysql_fetch_array($result)){ 
-	          $Mid  =$row['movieID']; 
-                  $mname = $row['movieName'];
 
-	  //-display the result of the array 
-	  echo "<ul>\n"; 
-	  echo "<li>"   .$Mid . " " .$mname  .  "</li>\n"; 
-	  echo "</ul>"; 
-	  } 
-                  
-       }
-   }
-
-?>
 
 <script>
            function validate(){
            var error; 
            var spans = document.getElementsByTagName("span");
            
-            var mName = document.searchForm.search.value;
+            var mName = document.searchForm.searchT.value;
             var sLocation = document.searchForm.location.value;
             var sDate = document.searchForm.date.value;
             var sTime = document.searchForm.time.value;
@@ -96,7 +86,7 @@
                         
              if(error==0){
                       return true;
-                      document.searchForm.submit();
+                      
                         }
                     else
                        return false;           
