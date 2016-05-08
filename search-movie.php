@@ -1,7 +1,9 @@
+
 <?php
 $title = 'search';
 include 'header.php';
 include 'connect-db.php';
+
 $name = "";
 $location = "";
 $date = "";
@@ -114,7 +116,7 @@ $shows = array();
 
     $shows[$c] = array(
                     'location' => $row['locationName'],
-                    'ID' => $row['movieName'],
+                    'movie' => $row['movieName'],
                     'date' => $row['date'],
                     'time' => $row['time']
                     );
@@ -124,29 +126,25 @@ $shows = array();
  
 //***********************************
 ?>
-<!--    <table>                        
-<?php foreach ($movies as $i) { ?>
-                <tr>
-                    <th>
-    <?php echo $i['ID']; ?>
-                    </th>
-                    <td>
-                        <label></label>
-                    </td>
-                </tr>
-<?php } ?>                                            
-    </table>-->
 
-<table>                        
-<?php echo $query;
-echo $c;
-foreach ($shows as $show) { ?>
+
+<div class="wrapper">
+    <div class="content">
+        <label id="s_result"><?php echo $c."   results"; ?></label>
+<table class="Tresult" >                        
+    <tr>
+        <th>Location</th>
+        <th>Movie title</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+<?php foreach ($shows as $show) { ?>
         <tr>
-            <th>
-                <?php echo $show['location']; ?>
-            </th>
             <td>
-                <?php echo $show['ID']; ?>
+                <?php echo $show['location']; ?>
+            </td>
+            <td>
+                <?php echo $show['movie']; ?>
             </td>
             <td>
                 <?php echo $show['date']; ?>
@@ -157,6 +155,10 @@ foreach ($shows as $show) { ?>
         </tr>
     <?php } ?>                                            
 </table> 
+
+    </div>
+</div>
+
 
 <?php
 include 'footer.php';

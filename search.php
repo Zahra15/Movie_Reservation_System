@@ -3,7 +3,7 @@
     $title ='search';
     include 'header.php';
     
-   if(isset($_POST['submit'])){
+   if(isset($_POST['submitb'])){
        if( ($_POST['searchT'] !== "") || ($_POST['location'] !== "") || ($_POST['date']) !== "" || ($_POST['time']) !== "" || ($_POST['type']) !== "") {
     
        header("Location: search-movie.php?name=".$_POST['searchT']."&location=".$_POST['location']."&date=".$_POST['date']."&time=".$_POST['time']."&type=".$_POST['type']);
@@ -29,7 +29,7 @@
             <option value="riyadh">Riyadh</option>
             <option value="jeddah">Jeddah</option>
             <option value="dammam">Dammam</option>
-            <option value="Khobar">Khobar</option>
+            <option value="khobar">Khobar</option>
             <option value="hofuf">Hofuf</option>
         </select><br>
         <label>Date </label><input type="date" name="date"/>
@@ -52,7 +52,7 @@
             <option value="Science fiction">Science fiction</option>
         </select>
         <br>
-        <button type="submit" name="submit" id="submit" onclick="validate();">Search</button>
+        <button type="submit" name="submitb" id="submit" onclick="validate();">Search</button>
         <span class="error">Please enter some values!</span>
            </div>
     </form>    
