@@ -29,7 +29,7 @@
             <option value="riyadh">Riyadh</option>
             <option value="jeddah">Jeddah</option>
             <option value="dammam">Dammam</option>
-            <option value="">Khobar</option>
+            <option value="Khobar">Khobar</option>
             <option value="hofuf">Hofuf</option>
         </select><br>
         <label>Date </label><input type="date" name="date"/>
@@ -37,10 +37,10 @@
         <label for="tim">Time</label>
         <select id="tim" name="time">
             <option value="">---</option>
-            <option value="1600">04:00PM</option>
-            <option value="1815">06:15PM</option>
-            <option value="0830">08:30PM</option>
-            <option value="1045">10:45PM</option>
+            <option value="04:00:00">04:00PM</option>
+            <option value="06:15:00">06:15PM</option>
+            <option value="08:30:00">08:30PM</option>
+            <option value="10:45:00">10:45PM</option>
         </select>
         <br>
         <label for="typ">Type</label>
@@ -49,7 +49,7 @@
             <option value="action">Action</option>
             <option value="comedy">Comedy</option>
             <option value="drama">Drama</option>
-            <option value="sciencefiction">Science Fiction</option>
+            <option value="Science fiction">Science fiction</option>
         </select>
         <br>
         <button type="submit" name="submit" id="submit" onclick="validate();">Search</button>
