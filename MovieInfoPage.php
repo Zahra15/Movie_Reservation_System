@@ -7,22 +7,24 @@
     $type = $_GET['type'];
     $date = $_GET['date'];
     $time = $_GET['time'];
+    $img = "images/".$_GET['img'];
 ?>
     <div class="wrapper">
     
     <div  class="content">
-
-
-        <h3> Movie Name: </h3>
-            <h4><?php echo $name; ?></h4>
-         <h3> Selected Date </h3>
-            <h4><?php echo $date; ?></h4>
-         <h3> Selected Time</h3>
-            <h4><?php echo $time; ?></h4>
-         <h3> Movie Type</h3>
-            <h4><?php echo $type; ?></h4>
-        <h3> Location </h3>
-            <h4><?php echo $location; ?></h4>
+       
+        <img class = "infoP" src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
+        
+        <h3 class="infoP"> Movie Name: </h3> <br>
+        <label class="infoP"><?php echo $name; ?></label> <br>
+         <h3 class="infoP"> Selected Date: </h3> <br>
+         <label class="infoP"><?php echo $date; ?></label> <br>
+         <h3 class="infoP"> Selected Time:</h3> <br>
+           <label class="infoP"><?php echo $time; ?></label> <br>
+         <h3 class="infoP"> Movie Type:</h3> <br>
+           <label class="infoP"><?php echo $type; ?></label> <br>
+        <h3 class="infoP"> Location: </h3> <br>
+          <label class="infoP"><?php echo $location; ?></label> <br>
         
         <button>Make Reservation</button>
         
@@ -31,6 +33,7 @@
         
 
     </div>
+<div class="clear"></div>
         
     <?php
     

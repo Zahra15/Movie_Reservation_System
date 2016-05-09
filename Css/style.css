@@ -378,7 +378,27 @@ label, h3{
     width: 140px;
     
 }
+h3.infoP{
+    display: inline;
+    width: 160px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0px;
+   
+    
+}
+label.infoP{
+    margin: 0px;
+    padding: 0px;
+    width: 290px;
+}
 
+img.infoP{
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 0px;
+}
  h3.names{
     display: inline-block;
     width: 140px;
