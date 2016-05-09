@@ -37,7 +37,7 @@ if ($_GET['type'] !== "") {
 }
 
 
-$query = " SELECT `locationName`, `movieName`, `date`, `time`
+$query = " SELECT `locationName`, `movieName`, `date`, `time`, `type`
 FROM `showing`
 INNER JOIN `movie` on showing.movieID = movie.movieID
 INNER JOIN `location` on showing.locationID = location.locationID ";
@@ -118,7 +118,8 @@ $shows = array();
                     'location' => $row['locationName'],
                     'movie' => $row['movieName'],
                     'date' => $row['date'],
-                    'time' => $row['time']
+                    'time' => $row['time'],
+                    'type' => $row['type']
                     );
                     $c++;
     }
@@ -141,10 +142,14 @@ $shows = array();
 <?php foreach ($shows as $show) { ?>
         <tr>
             <td>
-                <?php echo $show['location']; ?>
+               <?php echo$show['location']; ?>
             </td>
             <td>
-                <?php echo $show['movie']; ?>
+                <a id = "Slink"  href="
+                   <?php echo'MovieInfoPage.php?name='.$show['movie'].'&location='.$show['location'].'&type='.$show['type'].'&date='.$show['date'].'&time='.$show['time'] 
+                   ?>" class="Slink">
+                    <?php echo $show['movie']; ?> 
+                </a>
             </td>
             <td>
                 <?php echo $show['date']; ?>

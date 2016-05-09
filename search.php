@@ -15,7 +15,7 @@
 
 <div class="wrapper">
     <div class="content">
-        <form id="searchForm" name="searchForm"  method="POST" action="search.php">    
+        <form id="searchForm" name="searchForm"  method="POST" onsubmit="return validate();">    
          
         <label>Name: </label>
         <input type="search" name="searchT" id ="searchT">
@@ -52,7 +52,7 @@
             <option value="Science fiction">Science fiction</option>
         </select>
         <br>
-        <button type="submit" name="submitb" id="submit" onclick="validate();">Search</button>
+        <button type="submit" name="submitb" id="submit" >Search</button>
         <span class="error">Please enter some values!</span>
            </div>
     </form>    
@@ -88,8 +88,10 @@
                       return true;
                       
                         }
-                    else
-                       return false;           
+                    else          
+                        return false;
+                      
+                    
     }
 </script>
 <?php

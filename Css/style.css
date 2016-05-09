@@ -66,6 +66,12 @@ padding:20px 5px;
     color: black;
 }
 
+a.Slink :link{
+    color:black;
+}
+a.Slink :visited{
+    color: black;
+}
 
 .navItem-footer{
     display:inline ;
