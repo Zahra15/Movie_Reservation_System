@@ -1,11 +1,13 @@
 html{
      background-color: #eee;
 }
+
 .wrapper
 {
     Width:900px;  
     margin:0px auto;
     padding:30px;
+   
 
 }
 .content{
@@ -14,6 +16,7 @@ margin-bottom:30px;
 margin-left: 140px;
 margin-right: 140px;
 padding:20px 5px;
+
 
 }
 #homeBody{
@@ -27,7 +30,8 @@ padding:20px 5px;
 
     height: 200px;
     width: 900px;
-    margin-top: 0px;
+    margin-top: 0px ;
+    margin-left: 100px ;
    
 }
 #logo{
@@ -35,6 +39,8 @@ padding:20px 5px;
     
     padding-right: 0px;
 }
+
+
 .ptitle{
     float:left;
     font-size: 90px;
@@ -389,3 +395,23 @@ p.aboutP{
                 font-size: 10px;
                 visibility:hidden;
             }
+            
+            
+
+table{
+    border-collapse: collapse;
+    width: 110%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #CC0606;
+    color: white;
+}
+  

@@ -7,7 +7,8 @@ include 'header.php';
 <div class="wrapper">
     <div class="content">
  <form id="Contact" name="Contact">
-
+     <fieldset>
+         <legend>Contact Us</legend>
         <h3> Name:</h3>
          <input type= text name="userName" id="uName">
          <span class="error" >Enter your name please!</span>                        
@@ -19,8 +20,9 @@ include 'header.php';
          <h3> Comment:</h3><br>
         <textarea rows="10" cols="50" id="textArea" name="textArea"></textarea>
      <br>
-        <span class="error" >Enter your Message here!</span> <br>
+        <span class="error" >Enter Your Message Here!</span> <br>
           <br>
+     </fieldset>
  
 
         <div id="clear2"></div>

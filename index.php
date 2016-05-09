@@ -11,16 +11,16 @@ include 'header.php';
             <div class="slide_viewer">
                 <div class="slide_group">
 
-                    <img class ="slide" src="images/Revenant.jpg" alt=""/>
+                    <img class ="slide" src="images/Revenant.jpg" alt="Revenant"/>
 
                     <!-- <div class="slide"> -->
-                    <img class ="slide" src="images/The_Danish_Girl_(film)_poster.jpg" alt=""/>
+                    <img class ="slide" src="images/sky-in-the-sky.jpg" alt="Eye in the sky"/>
                     <!-- </div> -->
 
-                    <img class ="slide" src="images/kung-fu-panda3.jpg" alt=""/>
+                    <img class ="slide" src="images/mad-max-fury-road-poster2.jpg" alt="Mad max fury road "/>
 
 
-                    <img class ="slide" src="images/london-has-fallen.jpg" alt=""/>
+                    <img class ="slide" src="images/london-has-fallen.jpg" alt="London has fallen"/>
 
                 </div>
             </div>

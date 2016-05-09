@@ -14,7 +14,7 @@
                 <li class="navItem-footer"><a href="regesteration.php">Customer Registration</a></li>
                 <li class="navItem-footer"><a href="Search.php">Search Movies</a></li>
                 <li class="navItem-footer"><a href="aboutus.php">About Us</a></li>
-                <li class="navItem-footer"><a href="Contact%20Page.php">Contact Us</a></li>
+                <li class="navItem-footer"><a href="ContactPage.php">Contact Us</a></li>
             </ul>
             <p id="copyright">Copyright © 1993-2016 Movies.com, Inc.</p>
         </div>
