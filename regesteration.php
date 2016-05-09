@@ -6,7 +6,7 @@
 
 <div class="wrapper">
 <div class="content">
-    <form name="userReg">
+    <form name="userReg" onsubmit="return validate();">
 <fieldset>
          <legend><h2>PERSONAL INFORMATION</h2></legend>
 <br>
@@ -37,9 +37,11 @@
     <fieldset>
          <legend><h2>LOGIN INFORMATION</h2></legend>
 	<br>
-	<label>Username:</label> <input type= text id="uName">
-         <span id="uname" class="error" >Enter Your User-Name Please!</span>
-        <br><br>
+        <label>Username: </label><input type=text id="Uname">
+         <span id="spanUname" class="error">Enter Your user name please !</span>
+         <br>
+         <br>
+        
         <label>Password: </label><input type=password id="pwd">
          <span id="spanpwd" class="error">Enter Your Password Please!</span>
          <br>
@@ -91,8 +93,10 @@
 </fieldset>
     
 
-  <label>Friend</label> <br>
-   
+    <label> Where did you here about us? </label><br>
+   <input type="radio" name="where" id="where" value="Friend" > 
+     <label>friend</label><br>
+     
 <input type="radio" name="where" id="where" value="socialmedia" > 
      <label>Social Media</label><br>
    
@@ -103,13 +107,16 @@
       <label>Advertisement</label><br>
 
     <input type="radio" name="where" id="where" value="other">
-<label> Other  </label>
+    <label> Other  </label><br>
+    <button type="submit" name="submitb" id="submit" >register</button>
+ </form>
 </div>
 </div>
 
  <script>
             function validate()
-            {        var error; 
+            {
+                    var error; 
                      
                     var spans = document.getElementsByTagName("span");
             
@@ -120,39 +127,31 @@
                      var email =document.getElementById("email");
                     
                      var phone =document.getElementById("phone");
-                     var photo =document.getElementById("photo");
+                     //var photo =document.getElementById("photo");
                     
              
                      var fName = document.userReg.fName.value;
              
                      if(fName=="")
                      {
-              spans[0].setAttribute("style","visibility:visible");
+                        spans[0].setAttribute("style","visibility:visible");
                         first.style.borderColor="red";
                          error=1;
-                         
-                         
-             
-             
-          
                     }
                     else
-                       {
-                        
+                       { 
                            spans[0].setAttribute("style","visibility:hidden"); 
                            first.style.borderColor="grey";
-                        error=0;
+                            error=0;
                         }
-             
-              var lName = document.userReg.lName.value;
+                        
+                     var lName = document.userReg.lName.value;
              
                      if(lName=="")
                      {
-              spans[1].setAttribute("style","visibility:visible");
+                         spans[1].setAttribute("style","visibility:visible");
                         last.style.borderColor="red";
-                         error=1;
-                                 
-                                   
+                         error=1;                         
                     }
                     else
                        {
@@ -161,8 +160,8 @@
                            last.style.borderColor="grey";
                         error=0;
                         }
-             
-              var nationality = document.userReg.natio.value;
+                        
+                    var nationality = document.userReg.natio.value;
              
                      if(nationality=="")
                      {
@@ -179,8 +178,8 @@
                            natio.style.borderColor="grey";
                         error=0;
                         }
-             
-                var mail = document.userReg.email.value;
+                        
+                     var mail = document.userReg.email.value;
              
              
                      if(mail=="")
@@ -198,8 +197,8 @@
                            email.style.borderColor="grey";
                         error=0;
                         }
-             
-                 var pho = document.userReg.phone.value;
+                        
+                     var pho = document.userReg.phone.value;
              
              
                      if(pho=="")
@@ -217,16 +216,17 @@
                            phone.style.borderColor="grey";
                         error=0;
                         }
+                        
+
+                        
+                        var spanUser=document.getElementById("spanUname");
+                     var userName=document.userReg.Uname.value;
             
-            
-            var uname=document.getElementById("uname");
-           
-            var userfield = document.userReg.uName.value;
-           
-                     if(userfield=="")
+                   if(userName=="")
                      {
-                    uname.setAttribute("style","visibility:visible");
-                        userfield.style.borderColor="red";
+                        spanUser.setAttribute("style","visibility:visible");
+                  
+                       Uname.style.borderColor="red";
                          error=1;
                                  
                                    
@@ -234,13 +234,14 @@
                     else
                        {
                         
-                           uname.setAttribute("style","visibility:hidden"); 
-                           userfield.style.borderColor="grey";
+                           spanUser.setAttribute("style","visibility:hidden"); 
+                         Uname.style.borderColor="grey";
                         error=0;
                         }
-            
-            var passwo=document.getElementById("spanpwd");
-            var pwdval=document.userReg.pwd.value;
+                        
+                        
+                     var passwo=document.getElementById("spanpwd");
+                     var pwdval=document.userReg.pwd.value;
             
                    if(pwdval=="")
                      {
@@ -257,32 +258,22 @@
                          pwd.style.borderColor="grey";
                         error=0;
                         }
-             
-                     if(error==0)
-                      return true;
-                    else
+                        
+                   if(error ==0 ){
+                                   
+                         return true;
+                       
+                   }
+                   else{
+                      
                        return false;
-
-                   
-                    
-                    
-
+                   }
             }
             
-            
-            
-            
-            
-            
-            
-            
-          
-
-
-
-
         </script>
-    <?php
+   
+
+ <?php
    
     include 'footer.php';
 ?>
