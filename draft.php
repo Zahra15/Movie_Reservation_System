@@ -1,6 +1,6 @@
    
 <?php
-
+//test batool pull
 $query = "SELECT movieID FROM movie WHERE movieName LIKE '%$name%';";
 
 //STEP 5: RUN THE QUERY

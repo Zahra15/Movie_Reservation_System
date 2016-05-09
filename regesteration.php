@@ -51,22 +51,21 @@
     <br>
     <br>
     <br>
-    
 	
     <fieldset>
         <legend><h2>PAYMENT INFORMATION</h2></legend>
 		<br>
 	<label>Card Type:</label>
-    <select name="card">
+        <select name="card" id="cardType">
   		<option value="">Select Type</option>
   		<option value="visa">Visa</option>
    		<option value="mastercard">Mastercard</option>
   		<option value="americanexpress">American Express</option>
    		
 	</select><br><br>
-	<label>Name on the Card: </label><input type= text><br><br>
-	<label>Credit Card Number:</label> <input type= text><br><br>
-	<label>Expiry Date:</label><select name="expireMM">
+        <label>Name on the Card: </label><input type= text id="nameOnCard"><br><br>
+        <label>Credit Card Number:</label> <input type= text id="cardNumber"><br><br>
+        <label>Expiry Date:</label><select name="expireMM" id="expiryMonth">
     <option value=''>Month</option>
     <option value='01'>Janaury</option>
     <option value='02'>February</option>
@@ -81,7 +80,7 @@
     <option value='11'>November</option>
     <option value='12'>December</option>
 </select> 
-<select name='expireYY' >
+        <select name='expireYY' id="expiryYear">
     <option value=''>Year</option>
     <option value='10'>2013</option>
     <option value='11'>2014</option>
@@ -91,34 +90,20 @@
     <input type= text><br><br>
 </fieldset>
     
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    
-    
-    <fieldset><legend><h2>WHERE DID YOU HEAR ABOUT US</h2></legend>
-    <br>
-<input type="radio" name="where" value="friend" checked> 
+
   <label>Friend</label> <br>
    
-<input type="radio" name="where" value="socialmedia" > 
+<input type="radio" name="where" id="where" value="socialmedia" > 
      <label>Social Media</label><br>
    
-<input type="radio" name="where" value="newspaper" > 
+<input type="radio" name="where" id="where" value="newspaper" > 
      <label>Newspaper</label><br>
   
-<input type="radio" name="where" value="ad" > 
+<input type="radio" name="where" id="where" value="ad" > 
       <label>Advertisement</label><br>
 
-    <input type="radio" name="where" value="other">
+    <input type="radio" name="where" id="where" value="other">
 <label> Other  </label>
-<br><br>
-    </fieldset>
-    <br>
-<button type="button" onclick="validate();">Register</button>
-</form>
 </div>
 </div>
 
