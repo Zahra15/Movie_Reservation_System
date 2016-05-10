@@ -1,5 +1,5 @@
 <?php
-$title = 'contact us';
+$title = 'Contact us';
 include 'header.php';
 include 'connect-db.php';
 
