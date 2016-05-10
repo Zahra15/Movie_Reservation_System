@@ -56,7 +56,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
 	<label>Nationality: </label><input type= text id="natio" name="natio">
         <span class="error" >Enter Your Nationality Please!</span>  
         <br><br>
-	<label>E-Mail:</label><input type= text id="email" name="email">
+	<label>E-Mail:</label><input type= email id="email" name="email">
         <span class="error" >Enter Your E-mail Address Please!</span>  
         <br><br>
         <label>Phone Number:</label><input type= text id="phone" name="phone">
