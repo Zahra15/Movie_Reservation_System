@@ -1,19 +1,29 @@
     <?php
     $title ='Regestration Page';
     include 'header.php';
+    
+    if(isset($_POST['submitb']))
+    {
+     
+        header('Location:thankYou-Reg.php');
+       
+       
+    }
+
+
 ?>
 
 
 <div class="wrapper">
 <div class="content">
-    <form name="userReg" onsubmit=" return validate();">
+    <form name="userReg" onsubmit=" return validate();" method="POST">
 <fieldset>
          <legend><h2>PERSONAL INFORMATION</h2></legend>
 <br>
-	<label>First name: </label><input type= text id="fName">
+<label>First name: </label><input type= text name="fName"id="fName">
          <span class="error" >Enter Your First Name Please!</span>                        
         <br><br>
-	<label>Last name: </label><input type= text id="lName">
+        <label>Last name: </label><input type= text name="lName" id="lName">
         <span class="error" >Enter Your Last Name Please!</span>  
         <br><br>
 	<label>Nationality: </label><input type= text id="natio">
@@ -380,7 +390,6 @@
                          error=0;
                      }
                 
-                
                 var radio=document.userReg.where;
                 var flag=0;
                 for(var i=0; i<radio.length;i++)
@@ -400,14 +409,14 @@
                    radioSpan.style.visibility="hidden";
                     error=0;
                     }
-                
+               
                    if(error ==0 ){
                                    
                          return true;
                        
                    }
                    else{
-                      
+                      document.getElementById("fName").focus();
                        return false;
                    }
             }
