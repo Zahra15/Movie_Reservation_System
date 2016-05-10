@@ -415,7 +415,7 @@ div.transbox {
   display: inline;
   padding: 8px;
   border-radius: 15px;
-  visibility: hidden;
+  visibility: visible;
 }
 
 img.infoP{

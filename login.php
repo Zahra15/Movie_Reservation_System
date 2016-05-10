@@ -17,7 +17,7 @@ if( ($_POST['userName'] !== "") && ($_POST['userName'] !== "pwd")){
         
         if($result)
         {
-            echo 'in result';
+            
             if(mysqli_num_rows($result)== 1)
             {
                 
