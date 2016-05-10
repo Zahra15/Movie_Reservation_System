@@ -4,9 +4,7 @@
     include 'connect-db.php';
     if(isset($_POST['submitb']))
     {
-     if($_POST['photo']!=NULL)
-     {
-         $fname=$_POST['fName'];
+     $fname=$_POST['fName'];
          $lname=$_POST['lName'];
          $natio=$_POST['natio'];
          $email=$_POST['email'];
@@ -20,10 +18,10 @@
         $expMM=$_POST['expiryMM'];
         $expYY=$_POST['expiryYY'];
         $cc=$_POST['cardCode'];
-        $where=$_POST['where'];
+        $radio=$_POST['where'];
         
          
-$sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,where) VALUES('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$photo','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$where')";
+$sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,info) VALUES ('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$photo','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$radio')";
          if(mysqli_query($con, $sql))
         {
          
@@ -37,14 +35,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
  
        
      }
- /*else {
-     
-     echo '<div class="wrapper">';
-echo '<div class="content">';
-  echo '<p><h3>Add a photo !<br></h1></p> ';
- echo' </div></div>';
-     }*/
-    }
+
 
 
 ?>
@@ -65,7 +56,7 @@ echo '<div class="content">';
 	<label>Nationality: </label><input type= text id="natio" name="natio">
         <span class="error" >Enter Your Nationality Please!</span>  
         <br><br>
-	<label>E-Mail:</label><input type= email id="email" name="email">
+	<label>E-Mail:</label><input type= text id="email" name="email">
         <span class="error" >Enter Your E-mail Address Please!</span>  
         <br><br>
         <label>Phone Number:</label><input type= text id="phone" name="phone">
