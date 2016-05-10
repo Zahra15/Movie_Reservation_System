@@ -1,13 +1,49 @@
     <?php
     $title ='Regestration Page';
     include 'header.php';
-    
+    include 'connect-db.php';
     if(isset($_POST['submitb']))
     {
+     if($_POST['photo']!=NULL)
+     {
+         $fname=$_POST['fName'];
+         $lname=$_POST['lName'];
+         $natio=$_POST['natio'];
+         $email=$_POST['email'];
+         $phone=$_POST['phone'];
+        $photo=$_POST['photo'];
+        $Uname=$_POST['Uname'];
+        $pwd=$_POST['pwd'];
+        $cardType=$_POST['card'];
+        $cName=$_POST['nameOnCard'];
+        $cNum=$_POST['cardNumber'];
+        $expMM=$_POST['expiryMM'];
+        $expYY=$_POST['expiryYY'];
+        $cc=$_POST['cardCode'];
+        $where=$_POST['where'];
+        
+         
+$sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,where) VALUES('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$photo','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$where')";
+         if(mysqli_query($con, $sql))
+        {
+         
+              header('Location:thankYou-Reg.php');
+            exit();
+        }
+        else 
+        {
+            echo 'Error:'.$sql.'<br>'.mysqli_error($con);
+        }
+ 
+       
+     }
+ /*else {
      
-        header('Location:thankYou-Reg.php');
-       
-       
+     echo '<div class="wrapper">';
+echo '<div class="content">';
+  echo '<p><h3>Add a photo !<br></h1></p> ';
+ echo' </div></div>';
+     }*/
     }
 
 
@@ -26,16 +62,16 @@
         <label>Last name: </label><input type= text name="lName" id="lName">
         <span class="error" >Enter Your Last Name Please!</span>  
         <br><br>
-	<label>Nationality: </label><input type= text id="natio">
+	<label>Nationality: </label><input type= text id="natio" name="natio">
         <span class="error" >Enter Your Nationality Please!</span>  
         <br><br>
-	<label>E-Mail:</label><input type= email id="email">
+	<label>E-Mail:</label><input type= email id="email" name="email">
         <span class="error" >Enter Your E-mail Address Please!</span>  
         <br><br>
-	<label>Phone Number:</label><input type= text id="phone">
+        <label>Phone Number:</label><input type= text id="phone" name="phone">
         <span class="error" >Enter Your Phone Number Please!</span>  
         <br><br>
-	<label>Photo: </label><input type= file id="photo">  
+	<label>Photo: </label><input type= file name="photo" id="photo">  
         <br><br>
         </fieldset>
     <br>
@@ -47,12 +83,12 @@
     <fieldset>
          <legend><h2>LOGIN INFORMATION</h2></legend>
 	<br>
-        <label>Username: </label><input type=text id="Uname">
+        <label>Username: </label><input type=text id="Uname"name="Uname">
          <span id="spanUname" class="error">Enter Your user name please !</span>
          <br>
          <br>
         
-        <label>Password: </label><input type=password id="pwd">
+         <label>Password: </label><input type=password id="pwd"name="pwd">
          <span id="spanpwd" class="error">Enter Your Password Please!</span>
          <br>
          <br>
@@ -76,16 +112,16 @@
    		
 	</select>
         <span id="cardSpan" class="error">Select Card Type Please!</span><br><br>
-        <label>Name on the Card: </label><input type= text id="nameOnCard">
+        <label>Name on the Card: </label><input type= text id="nameOnCard" name="nameOnCard">
         <span id="cardNameSpan" class="error">Enter Name on Card Please!</span>
         
         <br><br>
-        <label>Credit Card Number:</label> <input type= text id="cardNumber">
+        <label>Credit Card Number:</label> <input type= text id="cardNumber" name="cardNumber">
         <span id="cardNumSpan" class="error">Enter Card Number Please!</span>
         <br><br>
         
         
-        <label>Expiry Date:</label><select name="expireMM" id="expiryMonth">
+        <label>Expiry Date:</label><select name="expiryMM" id="expiryMonth">
     <option value=''>Month</option>
     <option value='01'>Janaury</option>
     <option value='02'>February</option>
@@ -100,7 +136,7 @@
     <option value='11'>November</option>
     <option value='12'>December</option>
 </select> 
-        <select name='expireYY' id="expiryYear">
+        <select name='expiryYY' id="expiryYear">
     <option value=''>Year</option>
     <option value='10'>2013</option>
     <option value='11'>2014</option>
@@ -110,7 +146,7 @@
          <span id="expSpan" class="error">Enter Expiration Month&Year!</span>
         <br><br>
 	<label> Card Code: </label>
-    <input type= text id="cardCode">
+    <input type= text id="cardCode" name="cardCode">
        <span id="cardCodeSpan" class="error">Enter Card Code Please!</span>
     <br><br>
 </fieldset>
