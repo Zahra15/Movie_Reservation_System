@@ -6,8 +6,7 @@ include 'connect-db.php';
 if(isset($_POST['send']))
 {
     
-    if(isset($_POST['userName'],$_POST['email'],$_POST['textArea']))
-    {
+   
         
        $uName= $_POST['username'];
        $mail= $_POST['email'];
@@ -29,7 +28,7 @@ if(isset($_POST['send']))
        
                 
     
-    }
+    
     
 }
 ?>  
