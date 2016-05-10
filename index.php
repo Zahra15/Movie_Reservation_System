@@ -11,16 +11,20 @@ include 'header.php';
             <div class="slide_viewer">
                 <div class="slide_group">
 
-                    <img class ="slide" src="images/Revenant.jpg" alt="Revenant"/>
+                    <a href="<?php
+                    echo'search-movie.php?name=The%20Revenant&location=&date=&time=&type='; ?>"> <img class ="slide" src="images/Revenant.jpg" alt="Revenant"/></a>
 
                     <!-- <div class="slide"> -->
-                    <img class ="slide" src="images/sky-in-the-sky.jpg" alt="Eye in the sky"/>
+                    <a href="<?php
+                    echo'search-movie.php?name=eye%20in%20the%20sky&location=&date=&time=&type='; ?>"> <img class ="slide" src="images/sky-in-the-sky.jpg" alt="Eye in the sky"/></a>
                     <!-- </div> -->
 
-                    <img class ="slide" src="images/mad-max-fury-road-poster2.jpg" alt="Mad max fury road "/>
+                    <a href="<?php
+                    echo'search-movie.php?name=Mad%20Max:%20Fury%20Road&location=&date=&time=&type='; ?>"><img class ="slide" src="images/mad-max-fury-road-poster2.jpg" alt="Mad max fury road "/></a>
 
 
-                    <img class ="slide" src="images/london-has-fallen.jpg" alt="London has fallen"/>
+                    <a href="<?php
+                    echo'search-movie.php?name=london%20has%20fallen&location=&date=&time=&type='; ?>"><img class ="slide" src="images/london-has-fallen.jpg" alt="London has fallen"/></a>
 
                 </div>
             </div>
