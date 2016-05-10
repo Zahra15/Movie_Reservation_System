@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +36,11 @@
                      --><?php if ($title == 'login'){?><li class="navItem" id="loginP"><a class ="active" href="login.php"> Login </a></li>
                     <?php } else {?> <li class="navItem" id="loginP"><a href="login.php"> Login </a></li><?php } ?>
                 </ul>
+                
+                <?php if(isset($_SESSION['user'])){ 
+                    echo 'Welcome, '.$_SESSION['user'];
+                }
+                ?>
                 <div class="clear"></div>
             </div>
         </div>

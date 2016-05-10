@@ -1,86 +1,55 @@
-	<label>Username:</label> <input type= text id="uName">
-         <span id="spanuname" class="error" >Enter Your User-Name Please!</span>
-        <br><br>
+<?php
 
-<script>
-alert("validation!");
-                    
-             
-                                 var spuname=document.getElementById("spanuname");
-           
-                     var userfield = document.userReg.uName.value;
-                     
-                     if(userfield=="")
-                     {
-                          
-                          spuname.setAttribute("style","visibility:visible"); 
-                          userfield.style.borderColor="red";              
-                         error=1; 
-                         
-                    }
-                    else
-                       {  
-                           alert(userfield);
-                           spuname.setAttribute("style","visibility:hidden"); 
-                           userfield.style.borderColor="grey";
-                           error=0;
-                        }
-                        
-             
-              
-             
-                
-             
-                
-            
-            
-            var uname=document.getElementById("uname");
-           
-            var userfield = document.userReg.uName.value;
-           
-                     if(userfield=="")
-                     {
-                    uname.setAttribute("style","visibility:visible");
-                        userfield.style.borderColor="red";
-                         error=1;
-                                 
-                                   
-                    }
-                    else
-                       {
-                        
-                           uname.setAttribute("style","visibility:hidden"); 
-                           userfield.style.borderColor="grey";
-                        error=0;
-                        }
-            
-            var passwo=document.getElementById("spanpwd");
-            var pwdval=document.userReg.pwd.value;
-            
-                   if(pwdval=="")
-                     {
-                  passwo.setAttribute("style","visibility:visible");
-                       pwd.style.borderColor="red";
-                         error=1;
-                                 
-                                   
-                    }
-                    else
-                       {
-                        
-                           passwo.setAttribute("style","visibility:hidden"); 
-                         pwd.style.borderColor="grey";
-                        error=0;
-                        }
-             
-                     if(error==0){
-                         alert("no errors!");
-                      return true;
-                         }
-                    else{
-                        alert("errors");
-                       return false;}
+if(isset($_POST['uid'],$_POST['pwd']))
+{
+    $uname = $_POST['uid'];
+    $pwd = md5($_POST['pwd']);
 
-                   
-                    
-      </script>                    
+        $query = " SELECT * FROM user WHERE username='$uname' AND password='$pwd'";
+        $result = mysqli_query($con, $query);
+        if($result)
+        {
+            if((mysqli_num_rows($result)== 1))
+            {
+                $_SESSION['admin']=$uname;
+                header('Locatio:login.php?status=valid');
+            }
+            else
+            {
+                header('Location:login.php?status=invalid');
+            }
+        }
+    
+  
+        
+ }
+ 
+ 
+
+?>
+
+
+ <?php
+if (isset($_GET['status'])&& $_GET['status'] == "invalid") {
+     ?> <p class="login-error">Wrong username / password please try again</p>
+<?php ;} ?>
+
+     
+     
+           $query = "SELECT * FROM `user` WHERE `username` = '$uname' AND `password` = '$pwd';";
+    
+    $users = array();
+    $c =0;
+    $result = mysqli_query($con,$query);
+    $n = mysqli_num_rows($result);
+    while($row = mysqli_fetch_assoc($result))
+    {
+
+    $users[$c] = array(
+                    'name' => $row['username'],
+                    );
+                    $c++;
+    }
+  
+    echo $n;
+    echo $c;

@@ -27,6 +27,9 @@
           <label class="infoP"><?php echo $location; ?></label> <br>
         
         <button>Make Reservation</button>
+        <br>
+        
+        <div class="transbox"><label class="done">Reservation completed </label></div>
         
       </div>
       
