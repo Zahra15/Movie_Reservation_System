@@ -13,7 +13,7 @@
          $phone=$_POST['phone'];
         $photo=$_POST['photo'];
         $Uname=$_POST['Uname'];
-        $pwd=$_POST['pwd'];
+        $pwd=  md5($_POST['pwd']);
         $cardType=$_POST['card'];
         $cName=$_POST['nameOnCard'];
         $cNum=$_POST['cardNumber'];
