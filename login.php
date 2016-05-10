@@ -1,48 +1,43 @@
 <?php
-
 $title = 'login';
 include 'header.php';
 include 'connect-db.php';
 
-if(isset($_POST['Submit'])){
-    
-if( ($_POST['userName'] !== "") && ($_POST['userName'] !== "pwd")){
-    $uname = $_POST['userName'];
-    $pwd = md5($_POST['pwd']);
-    
-    
-       $query = "SELECT * FROM user WHERE username = '$uname' AND password = '$pwd';";
-         $result = mysqli_query($con, $query);
-         
-        
-        if($result)
-        {
-            echo 'in result';
-            if(mysqli_num_rows($result)== 1)
-            {
-                
-                $_SESSION['user']=$uname;
+if (isset($_POST['Submit'])) {
+
+    if (($_POST['userName'] !== "") && ($_POST['userName'] !== "pwd")) {
+        $uname = $_POST['userName'];
+        $pwd = md5($_POST['pwd']);
+
+
+        $query = "SELECT * FROM user WHERE username = '$uname' AND password = '$pwd';";
+        $result = mysqli_query($con, $query);
+
+
+        if ($result) {
+
+            if (mysqli_num_rows($result) == 1) {
+
+                $_SESSION['user'] = $uname;
                 header('Location:login.php?status=valid');
-            }
-            else
-            {
-                session_unset();
-                session_destroy();
+            } else {
+
                 header('Location:login.php?status=invalid');
             }
         }
-    
+    }
 }
-} 
- 
-
 ?>
 <div class="wrapper">
     <div class="content">
 
 
         <form id="Login" name="Login" method="POST" onsubmit="return validate();">
-
+<?php
+if (isset($_GET['status']) && $_GET['status'] == "invalid") {
+    ?> <p class="login-error" style="color:red;">Wrong username / password please try again</p>
+    <?php }
+?>
 
             <h3>Username</h3>
             <input type= "text" name="userName" id="box1">

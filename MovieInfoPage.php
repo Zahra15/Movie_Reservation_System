@@ -1,44 +1,98 @@
-    <?php
-    $title ='Movie info';
-    include 'header.php';
-    
-    $name = $_GET['name'];
-    $location = $_GET['location'];
-    $type = $_GET['type'];
-    $date = $_GET['date'];
-    $time = $_GET['time'];
-    $img = "images/".$_GET['img'];
+<?php
+$title = 'Movie info';
+include 'header.php';
+include 'connect-db.php';
+$name = $_GET['name'];
+$location = $_GET['location'];
+$type = $_GET['type'];
+$date = $_GET['date'];
+$time = $_GET['time'];
+$img = "images/" . $_GET['img'];
+$userID = $_SESSION['user'];
+ if(isset($_POST['reservationB'])){
+    $query="INSERT INTO `reservation`( `username`, `movieName`, `Location`, `reservationDate`, `reservationTime`) "
+            ."VALUES ('$userID' , '$name' , '$location' , '$date' , '$time');";
+    echo $query;
+   if (mysqli_query($con, $query)) {
+    header("location:reservation.php?name=".$name."&location=".$location."&type=".$type."&date=".$date."&time=".$time."&img=".$img."&status=done");
+    } else {
+    echo "Error: " . $query . "<br>" . mysqli_error($con);
+}
+}
+
 ?>
-    <div class="wrapper">
-    
+
+
+
+<div class="wrapper">
+
     <div  class="content">
+        <form name="reservationForm" method="POST" onsubmit=" return validate();">
+            <img class = "infoP" src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
+
+            <h3 class="infoP"> Movie Name: </h3> <br>
+            <label class="infoP"><?php echo $name; ?></label> <br>
+            <h3 class="infoP"> Selected Date: </h3> <br>
+            <label class="infoP"><?php echo $date; ?></label> <br>
+            <h3 class="infoP"> Selected Time:</h3> <br>
+            <label class="infoP"><?php echo $time; ?></label> <br>
+            <h3 class="infoP"> Movie Type:</h3> <br>
+            <label class="infoP"><?php echo $type; ?></label> <br>
+            <h3 class="infoP"> Location: </h3> <br>
+            <label class="infoP"><?php echo $location; ?></label> <br>
+
+            <button type = "submit" name = "reservationB">Make Reservation</button>
+            <br>
+        </form>
+        <span class="error" id = "loginSpan">you need to login first!</span>
+
        
-        <img class = "infoP" src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
-        
-        <h3 class="infoP"> Movie Name: </h3> <br>
-        <label class="infoP"><?php echo $name; ?></label> <br>
-         <h3 class="infoP"> Selected Date: </h3> <br>
-         <label class="infoP"><?php echo $date; ?></label> <br>
-         <h3 class="infoP"> Selected Time:</h3> <br>
-           <label class="infoP"><?php echo $time; ?></label> <br>
-         <h3 class="infoP"> Movie Type:</h3> <br>
-           <label class="infoP"><?php echo $type; ?></label> <br>
-        <h3 class="infoP"> Location: </h3> <br>
-          <label class="infoP"><?php echo $location; ?></label> <br>
-        
-        <button>Make Reservation</button>
-        <br>
-        
-        <div class="transbox"><label class="done">Reservation completed </label></div>
-        
-      </div>
-      
-        
 
     </div>
+
+
+
+</div>
 <div class="clear"></div>
+
+<script>
+    function validate() {
         
-    <?php
-    
-    include 'footer.php';
+        var spanLogin = document.getElementById("loginSpan");
+       
+        
+        
+       <?php if (!isset($_SESSION['user'])) { ?>
+               
+            spanLogin.setAttribute("style", "visibility:visible");
+           
+            error = 1;
+       <?php }
+        else
+        { ?>
+                
+            spanLogin.setAttribute("style", "visibility:hidden");
+           
+            
+            error = 0;
+       <?php } ?>
+
+
+        if (error == 0) {
+            
+            return true;
+
+        }
+        else {
+            
+            return false;
+            
+        }
+
+    }
+
+</script>
+
+<?php
+include 'footer.php';
 ?>
