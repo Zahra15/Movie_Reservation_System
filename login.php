@@ -20,6 +20,7 @@ if (isset($_POST['Submit'])) {
 
                 $_SESSION['user'] = $uname;
                 header('Location:login.php?status=valid');
+                header('location:index.php');
             } else {
 
                 header('Location:login.php?status=invalid');
