@@ -1,12 +1,44 @@
 <?php
 $title = 'contact us';
 include 'header.php';
+include 'connect-db.php';
+
+if(isset($_POST['send']))
+{
+    
+    if(isset($_POST['userName'],$_POST['email'],$_POST['textArea']))
+    {
+        
+       $uName= $_POST['username'];
+       $mail= $_POST['email'];
+       $cmnt= $_POST['textArea'];
+       
+       $sql="INSERT INTO contact (name,email,comment) VALUES ('$uName','$mail','$cmnt')";
+       
+         if(mysqli_query($con, $sql))
+        {
+         
+                header('Location:Thanks.php');
+            exit();
+        }
+        else 
+        {
+            echo 'Error:'.$sql.'<br>'.mysqli_error($con);
+        }
+
+       
+                
+    
+    }
+    
+}
 ?>  
 
     
 <div class="wrapper">
     <div class="content">
- <form id="Contact" name="Contact">
+        
+        <form id="Contact" name="Contact" onsubmit="return validate();" method="POST" >
      <fieldset>
          <legend>Contact Us</legend>
         <h3> Name:</h3>
@@ -26,7 +58,7 @@ include 'header.php';
  
 
         <div id="clear2"></div>
-     <button type="button" value="Submit" onclick="validate();">Send! </button>   
+        <button  value="Submit" name="send">Send! </button>   
         
         </form>   
      </div>
@@ -105,8 +137,11 @@ include 'header.php';
                         error=0;
                         }
 
+
                      if(error==0)
+                       
                       return true;
+                      
                     else
                        return false;
 
