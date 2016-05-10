@@ -36,7 +36,7 @@
                     --> <?php
                     if (isset($_SESSION['user'])) {
                         echo '<li class="navItem" id="welcomeP"><a href="#">'.$_SESSION['user'].' </a>'
-                                . '<ul class="submenu"><li class="navItem"><a herf="#">My reservations</a></li>'
+                                . '<ul class="submenu"><li class="navItem"><a href="reservationList.php">My reservations</a></li>'
                                 . '<li><a href="logout.php">Logout</a></li>'
                                 . '</ul></li>';
                         

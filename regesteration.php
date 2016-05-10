@@ -4,7 +4,7 @@
     include 'connect-db.php';
     if(isset($_POST['submitb']))
     {
-     $fname=$_POST['fName'];
+        $fname=$_POST['fName'];
          $lname=$_POST['lName'];
          $natio=$_POST['natio'];
          $email=$_POST['email'];
@@ -129,10 +129,10 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
 </select> 
         <select name='expiryYY' id="expiryYear">
     <option value=''>Year</option>
-    <option value='10'>2013</option>
-    <option value='11'>2014</option>
-    <option value='12'>2015</option>
-    <option value='12'>2016</option></select>
+    <option value='10'>2016</option>
+    <option value='11'>2017</option>
+    <option value='12'>2018</option>
+    <option value='12'>2019</option></select>
         
          <span id="expSpan" class="error">Enter Expiration Month&Year!</span>
         <br><br>
@@ -170,7 +170,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
  <script>
             function validate()
             {
-                    var error; 
+                    var error=0; 
                      
                     var spans = document.getElementsByTagName("span");
             
@@ -190,13 +190,13 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
                         spans[0].setAttribute("style","visibility:visible");
                         first.style.borderColor="red";
-                         error=1;
+                         error= error+1;
                     }
                     else
                        { 
                            spans[0].setAttribute("style","visibility:hidden"); 
                            first.style.borderColor="grey";
-                            error=0;
+                            //error=0;
                         }
                         
                      var lName = document.userReg.lName.value;
@@ -205,14 +205,14 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
                          spans[1].setAttribute("style","visibility:visible");
                         last.style.borderColor="red";
-                         error=1;                         
+                         error= error+1;                         
                     }
                     else
                        {
                         
                            spans[1].setAttribute("style","visibility:hidden"); 
                            last.style.borderColor="grey";
-                        error=0;
+                        //error=0;
                         }
                         
                     var nationality = document.userReg.natio.value;
@@ -221,7 +221,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
               spans[2].setAttribute("style","visibility:visible");
                         natio.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                                  
                                    
                     }
@@ -230,7 +230,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         
                            spans[2].setAttribute("style","visibility:hidden"); 
                            natio.style.borderColor="grey";
-                        error=0;
+                       // error=0;
                         }
                         
                      var mail = document.userReg.email.value;
@@ -240,7 +240,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
               spans[3].setAttribute("style","visibility:visible");
                         email.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                                  
                                    
                     }
@@ -249,7 +249,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         
                            spans[3].setAttribute("style","visibility:hidden"); 
                            email.style.borderColor="grey";
-                        error=0;
+                        //error=0;
                         }
                         
                      var pho = document.userReg.phone.value;
@@ -259,7 +259,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
               spans[4].setAttribute("style","visibility:visible");
                         phone.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                                  
                                    
                     }
@@ -268,7 +268,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         
                            spans[4].setAttribute("style","visibility:hidden"); 
                            phone.style.borderColor="grey";
-                        error=0;
+                       // error=0;
                         }
                         
 
@@ -281,7 +281,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         spanUser.setAttribute("style","visibility:visible");
                   
                        Uname.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                                  
                                    
                     }
@@ -290,7 +290,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         
                            spanUser.setAttribute("style","visibility:hidden"); 
                          Uname.style.borderColor="grey";
-                        error=0;
+                        //error=0;
                         }
                         
                         
@@ -301,7 +301,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
                   passwo.setAttribute("style","visibility:visible");
                        pwd.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                                  
                                    
                     }
@@ -310,7 +310,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                         
                            passwo.setAttribute("style","visibility:hidden"); 
                          pwd.style.borderColor="grey";
-                        error=0;
+                        //error=0;
                         }
                 
                 var cardValue = document.userReg.cardType.value;
@@ -320,15 +320,15 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                 {
                      cardSpan.setAttribute("style","visibility:visible");
                        cardType.style.borderColor="red";
-                         error=1;
-                
+                         error=error+1; 
                 }
                 else
                 {
                     cardSpan.setAttribute("style","visibility:hidden");
                        cardType.style.borderColor="grey";
-                         error=0;
-                     }
+                         //error=0;
+                  }
+                  
                   var cardName = document.userReg.nameOnCard.value;
                 var cardNameSpan=document.getElementById("cardNameSpan")
                 
@@ -336,14 +336,14 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                 {
                      cardNameSpan.setAttribute("style","visibility:visible");
                        nameOnCard.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                 
                 }
                 else
                 {
                     cardNameSpan.setAttribute("style","visibility:hidden");
                        nameOnCard.style.borderColor="grey";
-                         error=0;
+                         //error=0;
                      }
                 
                   var cardNum = document.userReg.cardNumber.value;
@@ -353,14 +353,14 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                 {
                      cardNumSpan.setAttribute("style","visibility:visible");
                        cardNumber.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                 
                 }
                 else
                 {
                     cardNumSpan.setAttribute("style","visibility:hidden");
                        cardNumber.style.borderColor="grey";
-                         error=0;
+                         //error=0;
                      }
                 
                 
@@ -372,24 +372,24 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      expSpan.setAttribute("style","visibility:visible");
                        expiryMonth.style.borderColor="red";
                        expiryYear.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                 
                 }
-                else
+                else{
                 if(expM=="")
                 {
                     expSpan.setAttribute("style","visibility:visible");
                         expiryMonth.style.borderColor="red";
                         expiryYear.style.borderColor="grey";
-                         error=1;
+                         error=error+1;
                      } 
-                       else
+                       else{
                 if(expY=="")
                 {
                     expSpan.setAttribute("style","visibility:visible");
                         expiryYear.style.borderColor="red";
                         expiryMonth.style.borderColor="grey";
-                         error=1;
+                         error=error+1;
                      } 
                      
                      else
@@ -398,8 +398,9 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                           expSpan.setAttribute("style","visibility:hidden");
                         expiryYear.style.borderColor="grey";
                         expiryMonth.style.borderColor="grey";
-                         error=0;
-                     }
+                         //error=0;
+                     }}
+                 }
                      
                      var cardCodev=document.userReg.cardCode.value;
                      var cardCodeSpan=document.getElementById("cardCodeSpan");
@@ -408,13 +409,13 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                      {
                          cardCodeSpan.setAttribute("style","visibility:visible");
                           cardCode.style.borderColor="red";
-                         error=1;
+                         error=error+1;
                      }
                      else
                      {
                          cardCodeSpan.setAttribute("style","visibility:hidden");
                           cardCode.style.borderColor="grey";
-                         error=0;
+                         //error=0;
                      }
                 
                 var radio=document.userReg.where;
@@ -429,20 +430,21 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
                     if(flag==0)
                     {
                     radioSpan.style.visibility="visible";  
-                      error=1;
+                      error=error+1;
                     }
                     else
                     {
                    radioSpan.style.visibility="hidden";
-                    error=0;
+                   // error=0;
                     }
                
                    if(error ==0 ){
-                                   
+                                  
                          return true;
                        
                    }
                    else{
+                       
                       document.getElementById("fName").focus();
                        return false;
                    }
