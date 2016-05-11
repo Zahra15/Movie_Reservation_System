@@ -30,7 +30,7 @@
                     --><?php if ($title == 'about us') { ?><li class="navItem"><a class ="active" href="aboutus.php"> About Us </a></li>
                     <?php } else { ?> <li class="navItem"><a href="aboutus.php"> About Us </a></li> <?php } ?><!--
 
-                    --><?php if ($title == 'Regestration Page') { ?><li class="navItem"><a class="active" href="regesteration.php"> Register </a></li>
+                    --><?php if ($title == 'Regestration Page') { ?><li class="navItem"><a class="active" href="registration.php"> Register </a></li>
                     <?php } else { ?> <li class="navItem"><a href="regesteration.php"> Register </a></li>  <?php } ?><!--
 
                     --> <?php
