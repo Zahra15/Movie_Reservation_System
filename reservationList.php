@@ -1,22 +1,25 @@
 <?php
 
+    $title = 'reservations list';
     include 'header.php';
     include 'connect-db.php';
-    session_start();
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+    
+    if (isset($_SESSION['user'])== true) 
     {
-        echo "Welcome to reservations page, " . $_SESSION['username'] . "!";
+        echo "Welcome to reservations page, " . $_SESSION['user'] . "!";
     }   
     else {
         echo "Please log in first to see this page.";
     }
-    $query = 'SELECT * FROM `reservation` WHERE `username`="$_SESSION["username"]"';
+    $sessionUser=$_SESSION['user'];
+    $query = "SELECT * FROM reservation WHERE username ='$sessionUser';";
+    
     $result= mysqli_query($con, $query);
     while ($row = mysqli_fetch_assoc($result)) 
     { 
         $reservation[$row['reservationID']] = array(
-        "movie" => $row['movieID'],
-        "location" => $row['reservationLocation'],
+        "movie" => $row['movieName'],
+        "location" => $row['Location'],
         "date"=> $row['reservationDate'],
         "time" => $row['reservationTime']   
        );
@@ -30,13 +33,15 @@
         <ul class="reservations">
             <?php foreach($reservation as $i) {?>
            <li>
-                <a href="item.php?id=<?php echo  $i['ID']; ?>">                
-                    <p><?php echo $i['movie'], $i['location'],$i['date'],$i['time']; ?>"</p>
+               <a href="reservationDetail.php?id=
+                   <?php echo  $i['reservationID']; ?>">                
+                    <p><?php echo $i['movie']," in ", $i['location']," on ",$i['date']," at ",$i['time']; ?>"</p>
                 </a>
             </li>
             <?php } ?>
             
-        </ul>    
+        </ul> 
+        
     </div>    
  </div>
 </div>
