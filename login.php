@@ -53,7 +53,7 @@ if (isset($_GET['status']) && $_GET['status'] == "invalid") {
 
             <button type="submit" name="Submit" onclick="validate();">Login </button>   
 
-            <button> Cancel</button>
+            <button> <a href="index.php" style="color:black;text-decoration: none;">Cancel</a></button>
 
 
 
