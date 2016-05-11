@@ -49,7 +49,6 @@ if (isset($_GET['status']) && $_GET['status'] == "invalid") {
             <input type= "password" name="pwd" id="box2">
             <span class="error" id="pwdid">This is required</span>                        
             <br/>		
-            <h6 id="forgot"> <a href="https://www.google.com/">forogt username or password?</a></h6>
 
 
             <button type="submit" name="Submit" onclick="validate();">Login </button>   
