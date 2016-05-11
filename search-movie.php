@@ -146,7 +146,7 @@ $shows = array();
                <?php echo$show['location']; ?>
             </td>
             <td>
-                <a id = "Slink"  href="
+                <a id = "Slink" style="color:black;" href="
                    <?php echo'MovieInfoPage.php?name='.$show['movie'].'&location='.$show['location'].'&type='.$show['type'].'&date='.$show['date'].'&time='.$show['time'].'&img='.$show['img'] 
                    ?>" class="Slink">
                     <?php echo $show['movie']; ?> 
