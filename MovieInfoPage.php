@@ -8,7 +8,8 @@ $type = $_GET['type'];
 $date = $_GET['date'];
 $time = $_GET['time'];
 $img = "images/" . $_GET['img'];
-$userID = $_SESSION['user'];
+if(isset($_SESSION['user'])){
+$userID = $_SESSION['user'];}
  if(isset($_POST['reservationB'])){
     $query="INSERT INTO `reservation`( `username`, `movieName`, `Location`, `reservationDate`, `reservationTime`) "
             ."VALUES ('$userID' , '$name' , '$location' , '$date' , '$time');";

@@ -8,7 +8,7 @@ if(isset($_POST['send']))
     
    
         
-       $uName= $_POST['username'];
+       $uName= $_POST['userName'];
        $mail= $_POST['email'];
        $cmnt= $_POST['textArea'];
        

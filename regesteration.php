@@ -2,6 +2,9 @@
     $title ='Regestration Page';
     include 'header.php';
     include 'connect-db.php';
+    if(isset($_SESSION['user'])){
+        header("location:registration1.php");
+    }
     if(isset($_POST['submitb']))
     {
         $fname=$_POST['fName'];

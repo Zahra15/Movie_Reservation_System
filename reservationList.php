@@ -27,20 +27,39 @@
 ?>
 <div id="content">
 
-<div class="page section">
-    <div class="wrapper">
-        <h1>your reservations list</h1>
-        <ul class="reservations">
-            <?php foreach($reservation as $i) {?>
-           <li>
-               <a href="reservationDetail.php?id=
-                   <?php echo  $i['reservationID']; ?>">                
-                    <p><?php echo $i['movie']," in ", $i['location']," on ",$i['date']," at ",$i['time']; ?>"</p>
+<div class="wrapper">
+    <div class="content">
+        
+        <h2>Your Reservations List</h2>
+        <table class="Tresult" >                        
+    <tr>
+        <th>Location</th>
+        <th>Movie title</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+<?php foreach ($reservation as $i) { ?>
+        <tr>
+            <td>
+               <?php echo$i['location']; ?>
+            </td>
+            <td>
+                <a id = "Slink" style="color:black;" href="
+                   <?php echo'reservationDetail.php?name='.$i['movie'].'&location='.$i['location'].'&type=&date='.$i['date'].'&time='.$i['time'].'&img=' 
+                   ?>" class="Slink">
+                    <?php echo $i['movie']; ?> 
                 </a>
-            </li>
-            <?php } ?>
-            
-        </ul> 
+            </td>
+            <td>
+                <?php echo $i['date']; ?>
+            </td>
+            <td>
+                <?php echo $i['time']; ?>
+            </td>
+        </tr>
+    <?php } ?>                                            
+</table>
+         
         
     </div>    
  </div>

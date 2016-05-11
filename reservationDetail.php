@@ -2,23 +2,30 @@
 $title = 'reservation details';
 include 'header.php';
 include 'connect-db.php';
-$name = $_GET['movie'];
+$name = $_GET['name'];
 $location = $_GET['location'];
 $type = $_GET['type'];
 $date = $_GET['date'];
 $time = $_GET['time'];
 $img = "images/" . $_GET['img'];
 $userID = $_SESSION['user'];
- if(isset($_POST['reservationID'])){
-    $query="INSERT INTO `reservation`( `username`, `movieName`, `Location`, `reservationDate`, `reservationTime`) "
-            ."VALUES ('$userID' , '$name' , '$location' , '$date' , '$time');";
-    echo $query;
-   if (mysqli_query($con, $query)) {
-    header("location:reservation.php?name=".$name."&location=".$location."&type=".$type."&date=".$date."&time=".$time."&img=".$img."&status=done");
-    } else {
-    echo "Error: " . $query . "<br>" . mysqli_error($con);
-}
-}
+
+    $query="SELECT `picture`,`type` FROM `movie` WHERE `movieName`='inside out'";
+    
+    $reservation=array();
+    $result= mysqli_query($con, $query);
+    $c=  mysqli_num_rows($result);
+    while ($row = mysqli_fetch_assoc($result)) 
+    { 
+        $reservation = array(
+        "type" => $row['type'],
+        "picture" => $row['picture'],
+           
+       );
+    }
+    $type=$reservation['type'];
+    $img="images/".$reservation['picture'];
+
 
 ?>
 
