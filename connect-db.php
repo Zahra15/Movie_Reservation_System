@@ -18,9 +18,6 @@ if(mysqli_connect_errno($con))
 {
     echo mysqli_connect_errno();
 }
-else{
-    echo 'connected to the database successfully';
-}
 ?>
 
 
