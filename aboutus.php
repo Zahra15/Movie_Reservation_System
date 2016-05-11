@@ -20,12 +20,13 @@ include 'header.php';
             
             <p class="aboutP">Curious programmer. <br>
                 22 years old<br>
-                CS student at CCSIT.<br></p>
+                CS student,<br>
+                at CCSIT.<br></p>
 
             <p class="aboutP">Amature programmer.<br>
                 22 years old.<br>
                 Student at CCSIT,<br>
-                3rd year CS majour. <br></p>
+                3rd year CS major. <br></p>
 
             <p class="aboutP">Just a programmer.<br>
                 22 years old.<br>
