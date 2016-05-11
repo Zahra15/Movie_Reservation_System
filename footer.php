@@ -11,7 +11,7 @@
         <div id="sitemap">
             <ul id="navsite" class="nav-footer">
                 <li class="navItem-footer"><a href="index.php">Home</a></li>
-                <li class="navItem-footer"><a href="regesteration.php">Customer Registration</a></li>
+                <li class="navItem-footer"><a href="registration.php">Customer Registration</a></li>
                 <li class="navItem-footer"><a href="Search.php">Search Movies</a></li>
                 <li class="navItem-footer"><a href="aboutus.php">About Us</a></li>
                 <li class="navItem-footer"><a href="ContactPage.php">Contact Us</a></li>
