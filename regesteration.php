@@ -1,18 +1,16 @@
     <?php
-    $title ='Regestration Page';
+    $title ='Registration Page';
     include 'header.php';
     include 'connect-db.php';
-    if(isset($_SESSION['user'])){
-        header("location:registration1.php");
-    }
     if(isset($_POST['submitb']))
     {
+         
         $fname=$_POST['fName'];
          $lname=$_POST['lName'];
          $natio=$_POST['natio'];
          $email=$_POST['email'];
          $phone=$_POST['phone'];
-        $photo=$_POST['photo'];
+    
         $Uname=$_POST['Uname'];
         $pwd=  md5($_POST['pwd']);
         $cardType=$_POST['card'];
@@ -23,30 +21,97 @@
         $cc=$_POST['cardCode'];
         $radio=$_POST['where'];
         
+ 
+     $sql1="SELECT * FROM user WHERE username='$Uname'";
          
-$sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,info) VALUES ('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$photo','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$radio')";
-         if(mysqli_query($con, $sql))
-        {
+       $result1=mysqli_query($con, $sql1);
+       $r=  mysqli_fetch_row($result1);
+         if($r !=0)
+         {
+
+  echo '<p><h4 style="color:red;text-align:center;">** User name already taken..</h4></p> ';
+  exit();
+ 
+         }
+        
+if(isset($_FILES['image']))
+{
+    
+         //IF the user uploaded a new image
+         
+             
+            $filename = $_FILES['image']['name'];
+            $tmp  = $_FILES['image']['tmp_name'];
+            $size = $_FILES['image']['size'];
+            $error = $_FILES['image']['error'];
+            $type = $_FILES['image']['type'];
+
+            
+
+            //STEP 1: Construct the Destination Path
+            $path = "images/userImg/";
+            $path = $path.basename($filename);
+
+            //CHECK FILE TYPE FROM EXTENSION
+            $accepted = array('png','jpg','jpeg','gif');
+            $ext_array = explode(".", $path);
+            $extension = end($ext_array);
+            $result = in_array($extension,$accepted);
+
+             //STEP 2: CHECK 3 FACTORS: SIZE, TYPE and ERROR
+            if($size <= 500000 && ($result==1) && ($error==0))
+            {
+                
+                
+                //STEP 3: Move the uploaded file
+                $out = move_uploaded_file($tmp, $path);        
+                
+                if($out==1)
+                {
+                    //STEP 4: Create the Query
+                  $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,info) VALUES ('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$path','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$radio')";                 
+                
+                   if(mysqli_query($con, $sql))
+                        {
          
               header('Location:thankYou-Reg.php');
             exit();
-        }
-        else 
-        {
+                        }
+                   else 
+                       {
             echo 'Error:'.$sql.'<br>'.mysqli_error($con);
-        }
+                       }
+                  
+            }//end out
+            }//end check
+           
+}      
+
+else 
+{
+    
+        $photo=$_POST['photo'];
+        $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,phonenumber,photo,cardType,nameOnCard,cardNumber,expiryMonth,expiryYear,cardcode,info) VALUES ('$Uname','$pwd','$fname','$lname','$natio','$email','$phone','$photo','$cardType','$cName','$cNum','$expMM','$expYY',$cc,'$radio')";                 
  
-       
-     }
+             if(mysqli_query($con, $sql))
+                        {
+         
+              header('Location:thankYou-Reg.php');
+            exit();
+                        }
+                   else 
+                       {
+            echo 'Error:'.$sql.'<br>'.mysqli_error($con);
+                       }
+}
 
-
-
+    }
 ?>
 
 
 <div class="wrapper">
 <div class="content">
-    <form name="userReg" onsubmit=" return validate();" method="POST">
+    <form name="userReg" onsubmit=" return validate();" method="POST" enctype="multipart/form-data">
 <fieldset>
          <legend><h2>PERSONAL INFORMATION</h2></legend>
 <br>
@@ -79,6 +144,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
 	<br>
         <label>Username: </label><input type=text id="Uname"name="Uname">
          <span id="spanUname" class="error">Enter Your user name please !</span>
+       
          <br>
          <br>
         
@@ -149,7 +215,7 @@ $sql="INSERT INTO user (username,password,firstName,lastName,nationality,email,p
     <fieldset><legend><h1>Where did you here about us? </h1></legend>
   <br> 
    <input type="radio" name="where" id="where" value="Friend" > 
-     <label>friend</label><br>
+     <label>Friend</label><br>
      
 <input type="radio" name="where" id="where" value="socialmedia" > 
      <label>Social Media</label><br>
