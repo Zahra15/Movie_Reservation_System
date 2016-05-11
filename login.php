@@ -28,12 +28,14 @@ if (isset($_POST['Submit'])) {
         }
     }
 }
+
+
 ?>
 <div class="wrapper">
     <div class="content">
 
 
-        <form id="Login" name="Login" method="POST" onsubmit="return validate();">
+        <form id="Login" name="Login" method="POST" >
 <?php
 if (isset($_GET['status']) && $_GET['status'] == "invalid") {
     ?> <p class="login-error" style="color:red;">Wrong username / password please try again</p>
@@ -51,9 +53,9 @@ if (isset($_GET['status']) && $_GET['status'] == "invalid") {
             <br/>		
 
 
-            <button type="submit" name="Submit" onclick="validate();">Login </button>   
+            <button type="submit" name="Submit" onclick="return validate();" >Login </button>   
 
-            <button> <a href="index.php" style="color:black;text-decoration: none;">Cancel</a></button>
+            <button name="cancel" onclick="cancel();"> Cancel</button>
 
 
 
@@ -121,7 +123,6 @@ if (isset($_GET['status']) && $_GET['status'] == "invalid") {
 
 
     }
-
 
 
 
