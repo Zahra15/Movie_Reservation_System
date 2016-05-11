@@ -4,13 +4,6 @@
     include 'header.php';
     include 'connect-db.php';
     
-    if (isset($_SESSION['user'])== true) 
-    {
-        echo "Welcome to reservations page, " . $_SESSION['user'] . "!";
-    }   
-    else {
-        echo "Please log in first to see this page.";
-    }
     $sessionUser=$_SESSION['user'];
     $query = "SELECT * FROM reservation WHERE username ='$sessionUser';";
     
